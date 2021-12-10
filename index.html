@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+</head>
+
+<body>
+  
+  <style type="text/css" media="all">
+    * {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: black;
+}
+
+
+.content {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  font-size: 68px;
+  font-family: sans-serif;
+}
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+.form {
+  background-color: white;
+  padding: 1rem;
+  font-family: sans-serif;
+  z-index: 20;
+}
+
+
+input {
+  width: 100%;
+  border: none;
+  background-color: #eee;
+  padding: 0.7rem 1rem;
+  box-sizing: border-box;
+  outline: none;
+  margin-top: 5px;
+  border-radius: 15px;
+}
+
+.input p {
+  margin-left: 10px;
+}
+  </style>
+
+    <div class="wrapper">
+      <div class="form">
+        <div class="input">
+          <p>Kata-kata mutiaramu</p>
+          <input type="text" placeholder="MALU BOS (lanjutin)" id="context"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <marquee><h1 id="text"></h1></marquee>
+    </div>
+
+  <script type="text/javascript" charset="utf-8">
+    const context = document.getElementById("context")
+
+
+context.addEventListener("keyup", Context)
+
+function Context(e) {
+  if (e.keyCode == 13) {
+    alert('Janga Lupa Putar Hp Anda (Rotate Screen)')
+    alert('Tap layar untuk masuk mode full screen.')
+    document.querySelector(".wrapper").style.display = 'none'
+    document.getElementById("text").innerText = context.value.toUpperCase()
+    window.addEventListener('click', fullScreen)
+  }
+}
+
+
+function fullScreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen()
+  }
+}
+  </script>
+</body>
+
+</html>
